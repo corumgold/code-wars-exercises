@@ -17,7 +17,7 @@ function findOutlier(integers) {
         }
     } else {
         for (let i = 0; i < integers.length; i++) {
-            if (integers[i] % 2 === 1) {
+            if (integers[i] % 2 !== 0) {
                 return integers[i]
             }
         }
