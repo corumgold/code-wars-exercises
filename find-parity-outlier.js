@@ -1,5 +1,4 @@
 function findOutlier(integers) {
-    debugger;
     let oddsCount = 0
     let evensCount = 0
     for (let i = 0; i < integers.length; i++) {
@@ -23,5 +22,3 @@ function findOutlier(integers) {
         }
     }
 }
-
-findOutlier([2, 6, 8, 10, 3])
