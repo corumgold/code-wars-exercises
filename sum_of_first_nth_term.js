@@ -13,3 +13,19 @@
 // 1 --> 1 --> "1.00"
 // 2 --> 1 + 1/4 --> "1.25"
 // 5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"
+
+function seriesSum(n) {
+    let total = 0
+    if (n === 0) {
+        total = 0.00;
+    } else if (n === 1) {
+        total += 1;
+    } else {
+        total += 1;
+        let divisor = 1
+        for (let i = 1; i < n; i++) {
+            divisor += 3
+            total += (1 / divisor);
+        }
+    } return total.toFixed(2);
+} 
