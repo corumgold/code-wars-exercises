@@ -39,7 +39,7 @@ function findEvenIndex(nums) {
         let rightSide = 0;
         if (i === 0) {
             leftSide = 0;
-            for (let r = i + 1; r < nums.length - 1; r++) { //find the sum of right side numbers;
+            for (let r = i + 1; r < nums.length; r++) { //find the sum of right side numbers;
                 rightSide += nums[r];
             }
         } else if (i === nums.length - 1) {
@@ -59,4 +59,4 @@ function findEvenIndex(nums) {
     } return -1;
 }
 
-findEvenIndex([1, 2, 3, 4, 3, 2, 1])
+findEvenIndex([20,10,-80,10,10,15,35])
