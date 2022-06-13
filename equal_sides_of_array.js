@@ -33,5 +33,30 @@
 // If you are given an array with multiple answers, return the lowest correct index.
 
 function findEvenIndex(nums) {
-    
+    debugger;
+    for (let i = 0; i < nums.length; i++) {
+        let leftSide = 0;
+        let rightSide = 0;
+        if (i === 0) {
+            leftSide = 0;
+            for (let r = i + 1; r < nums.length - 1; r++) { //find the sum of right side numbers;
+                rightSide += nums[r];
+            }
+        } else if (i === nums.length - 1) {
+            rightSide = 0;
+            for (let l = i - 1; l >= 0; l--) { //find the sum of left side numbers;
+                leftSide += nums[l];
+            }
+        } else {
+            for (let l = i - 1; l >= 0; l--) { //find the sum of left side numbers;
+                leftSide += nums[l];
+            } for (let r = i + 1; r < nums.length; r++) { //find the sum of right side numbers;
+                rightSide += nums[r];
+            }
+        } if (rightSide === leftSide) {
+            return i;
+        }
+    } return -1;
 }
+
+findEvenIndex([1, 2, 3, 4, 3, 2, 1])
