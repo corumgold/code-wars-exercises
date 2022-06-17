@@ -12,6 +12,22 @@
 // drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
 // With list [20,37,20,21] and number 1, the result would be [20,37,21].
 
-function deleteNth(arr,n){
-    // ...
-  }
+function deleteNth(arr, n) {
+    debugger;
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+        if (newArr.length === 0) newArr.push(element);
+        else {
+            let counter = 0;
+            for (let j = 0; j < newArr.length; j++) {
+                if (newArr[j] === element) counter++;
+            }
+            if (counter < n) {
+                newArr.push(element);
+            }
+        }
+    } return newArr;
+}
+
+deleteNth([1, 2, 3, 1, 2, 1, 2, 3], 2);
