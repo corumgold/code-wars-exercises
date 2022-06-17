@@ -15,14 +15,18 @@
 function deleteNth(arr, n) {
     debugger;
     let newArr = []
+    //check through each element in the array
     for (let i = 0; i < arr.length; i++) {
         let element = arr[i];
+        //if no elements in the new array, there can't be any repeated -> push the element!
         if (newArr.length === 0) newArr.push(element);
         else {
+            //look through the elements in the new array to see how many times the current element occurs there.
             let counter = 0;
             for (let j = 0; j < newArr.length; j++) {
                 if (newArr[j] === element) counter++;
             }
+            //if there are less than n occurances -> push the element!
             if (counter < n) {
                 newArr.push(element);
             }
