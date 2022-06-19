@@ -10,6 +10,12 @@
 // friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
 // Note: keep the original order of the names in the output.
 
-function friend(friends){
-    
-  }
+function friend(friends) {
+    let trueFriends = []
+    for (let i = 0; i < friends.length; i++) {
+        let person = friends[i];
+        if (person.length === 4) {
+            trueFriends.push(person);
+        }
+    } return trueFriends;
+}
