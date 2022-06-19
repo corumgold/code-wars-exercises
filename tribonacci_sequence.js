@@ -18,3 +18,18 @@
 // Signature will always contain 3 numbers; n will always be a non-negative number; if n == 0, then return an empty array
 // (except in C return NULL) and be ready for anything else which is not clearly specified ;)
 
+function tribonacci(signature, n) {
+    let array = []
+    if (n < 4) {
+        for (let i = 0; i < n; i++) {
+            array.push(signature[i]);
+        }
+    }
+    else {
+        array = signature.slice(0);
+
+        for (let i = 3; i < n; i++) {
+            array[i] = array[i - 1] + array[i - 2] + array[i - 3];
+        }
+    } return array;
+}
