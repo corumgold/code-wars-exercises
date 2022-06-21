@@ -6,6 +6,16 @@
 
 // Note: If the number is a multiple of both 3 and 5, only count it once.
 
-function solution(number){
-    
+function solution(number) {
+    let sum = 0;
+    if (number < 0) {
+        return 0
+    }
+    for (let i = number - 1; i > 0; i--) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            sum += i;
+        }
+    } return sum;
 }
+
+solution(10);
