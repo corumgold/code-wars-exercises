@@ -34,6 +34,65 @@
 // but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater 
 // than any valid more significant unit of time.
 
-function formatDuration (seconds) {
-    // Complete this function
-  }
+function formatDuration(seconds) {
+    debugger;
+    let yearCt = 0;
+    let dayCt = 0;
+    let hrCt = 0;
+    let minCt = 0;
+    let secCt = 0;
+    let arr = []
+    let string = ""
+
+    while (seconds > 0) {
+        if (seconds >= 31536000) {
+            yearCt += 1;
+            seconds -= 31536000;
+            continue;
+        }
+        if (seconds >= 86400) {
+            dayCt += 1;
+            seconds -= 86400;
+            continue;
+        }
+        if (seconds >= 3600) {
+            hrCt += 1;
+            seconds -= 3600;
+            continue;
+        }
+        if (seconds >= 60) {
+            minCt += 1;
+            seconds -= 60;
+            continue;
+        } else {
+            secCt = seconds;
+            seconds = 0;
+        }
+    }
+
+    if (yearCt > 1) arr.push(`${yearCt} years, `);
+    else if (yearCt) arr.push(`${yearCt} year, `);
+
+    if (dayCt > 1) arr.push(`${dayCt} days, `);
+    else if (dayCt) arr.push(`${dayCt} day, `);
+
+    if (hrCt > 1) arr.push(`${hrCt} hours, `);
+    else if (hrCt) arr.push(`${hrCt} hour, `);
+
+    if (minCt > 1) arr.push(`${minCt} minutes, `);
+    else if (minCt) arr.push(`${minCt} minute, `);
+
+    if (secCt > 1) arr.push(`${secCt} seconds, `);
+    else if (secCt) arr.push(`${secCt} second, `);
+
+    if (arr.length > 1) {
+        arr.splice(arr.length - 1, 0, "and ")
+        string = arr.join("")
+        string = string.slice(0, string.indexOf("and") - 2) + string.slice(string.indexOf("and") - 1);
+    } else if (arr.length === 1) {
+        string = arr.toString();
+    } else {
+        return "now"
+    }
+    return string.slice(0, string.length - 2)
+} formatDuration(21)
