@@ -7,6 +7,12 @@
 // The returned format must be correct in order to complete this challenge.
 // Don't forget the space after the closing parentheses!
 
-function createPhoneNumber(numbers){
-  
-}
+function createPhoneNumber(numbers) {
+    let areaCodeArr = numbers.splice(0, 3)
+    let areaCode = "(" + areaCodeArr.join("") + ")";
+    
+    numbers.splice(3, 0, "-");
+    return areaCode + " " + numbers.join("");
+} 
+
+createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
