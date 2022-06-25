@@ -10,5 +10,14 @@
 // 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 
 function digital_root(n) {
-  // ...
-}
+  debugger;
+    let sum = 0;
+  let stringedNum = n.toString();
+  if (stringedNum.length === 1) {
+    return n;
+  }
+
+  for (let i = 0; i < stringedNum.length; i++) {
+    sum += parseInt(stringedNum[i]);
+  } return digital_root(sum)
+} 
