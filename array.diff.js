@@ -7,8 +7,15 @@
 
 // arrayDiff([1,2,2,2,3],[2]) == [1,3]
 
-
-
 function arrayDiff(a, b) {
-  
+  for (let i = 0; i < b.length; i++) {
+    let elToRemove = b[i];
+    for (let j = 0; j < a.length; j++) {
+      let currentEl = a[j];
+      if (currentEl === elToRemove) {
+        a.splice(j, 1);
+        j--;
+      }
+    }
+  } return a;
 }
