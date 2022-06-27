@@ -11,5 +11,16 @@
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
-
-duplicateCount('abbcdde');
+function duplicateCount(text) {
+  let smallText = text.toLowerCase();
+  let dups = [];
+  for (let i = 0; i < smallText.length; i++) {
+    let element = smallText[i];
+    for (let j = 0; j < smallText.length; j++) {
+      if (j !== i && element === smallText[j] && !dups.includes(element)) {
+        dups.push(element);
+      }
+    }  
+  }
+  return dups.length;
+}
