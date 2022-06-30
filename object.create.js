@@ -18,6 +18,25 @@
 // If properties parameter is passed and is not undefined, then Object.create will make call Object.defineProperties(obj,properties), 
 // where obj is the object to be returned by Object.create.
 
+// OBJECTIVES
+// In absence of the original Object.create create your own implementation of it that acts like the original one and assign it to the Object.create. 
+// To access inner [[Prototype]] property of object use its __proto__ property2.
+
+// Your implementation will be used like this:
+
+// var citizen = {
+//   sleep: function(){ return "zzZ..."; },
+//   panic: function(){ return "AaAaAaAa!"; }
+// };
+
+// var veteran = Object.create(citizen,{
+//         panic: {
+//           value: function(){
+//             return "SNAFU";
+//           }
+//         }
+//       });
+
 Object.create = function(prototype, properties) {
     //Your code goes here
     //And remember: you need not to reinvent Object.defineProperties on your own!
