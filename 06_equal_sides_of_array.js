@@ -1,3 +1,5 @@
+//Link: https://www.codewars.com/kata/5679aa472b8f57fb8c000047/javascript
+
 // You are going to be given an array of integers.
 // Your job is to take that array and find an index N where the sum of the integers to the left of N
 // is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
@@ -32,31 +34,18 @@
 // Note:
 // If you are given an array with multiple answers, return the lowest correct index.
 
+//solveCount = 1;
+
 function findEvenIndex(nums) {
-    debugger;
-    for (let i = 0; i < nums.length; i++) {
-        let leftSide = 0;
-        let rightSide = 0;
-        if (i === 0) {
-            leftSide = 0;
-            for (let r = i + 1; r < nums.length; r++) { //find the sum of right side numbers;
-                rightSide += nums[r];
-            }
-        } else if (i === nums.length - 1) {
-            rightSide = 0;
-            for (let l = i - 1; l >= 0; l--) { //find the sum of left side numbers;
-                leftSide += nums[l];
-            }
-        } else {
-            for (let l = i - 1; l >= 0; l--) { //find the sum of left side numbers;
-                leftSide += nums[l];
-            } for (let r = i + 1; r < nums.length; r++) { //find the sum of right side numbers;
-                rightSide += nums[r];
-            }
-        } if (rightSide === leftSide) {
-            return i;
-        }
-    } return -1;
+  debugger;
+  let total = nums.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
+  let counter = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (counter === total / 2) return i;
+    counter += nums[i]
+  }
 }
 
-findEvenIndex([20,10,-80,10,10,15,35])
+findEvenIndex([20, 10, -80, 10, 10, 15, 35]);
