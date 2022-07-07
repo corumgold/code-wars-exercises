@@ -34,18 +34,21 @@
 // Note:
 // If you are given an array with multiple answers, return the lowest correct index.
 
-//solveCount = 1;
+//solveCount = 2;
 
 function findEvenIndex(nums) {
-  debugger;
-  let total = nums.reduce((acc, curr) => {
-    return acc + curr;
-  }, 0);
-  let counter = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (counter === total / 2) return i;
-    counter += nums[i]
+    let leftCount = 0;
+    let rightCount = 0;
+    for (let j = 0; j < i; j++) {
+      leftCount += nums[j];
+    }
+    for (let k = nums.length - 1; k > i; k--) {
+      rightCount += nums[k];
+    }
+    if (leftCount === rightCount) return i;
   }
+  return -1;
 }
 
 findEvenIndex([20, 10, -80, 10, 10, 15, 35]);
