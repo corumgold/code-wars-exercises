@@ -8,8 +8,24 @@
 
 // Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
 
-//solveCount = 0;
+//solveCount = 1;
 
 var maxSequence = function (arr) {
-  // ...
+  debugger;
+  let greatSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let workingSum = arr[i];
+    if (workingSum >= greatSum) {
+      greatSum = workingSum;
+    }
+    for (let j = i + 1; j < arr.length; j++) {
+      workingSum += arr[j];
+      if (workingSum >= greatSum) {
+        greatSum = workingSum;
+      }
+    }
+  }
+  return greatSum;
 };
+
+maxSequence([1]);
