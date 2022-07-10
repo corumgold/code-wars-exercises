@@ -37,18 +37,18 @@
 //solveCount = 2;
 
 function findEvenIndex(nums) {
+  debugger;
   for (let i = 0; i < nums.length; i++) {
-    let leftCount = 0;
-    let rightCount = 0;
-    for (let j = 0; j < i; j++) {
-      leftCount += nums[j];
-    }
-    for (let k = nums.length - 1; k > i; k--) {
-      rightCount += nums[k];
-    }
-    if (leftCount === rightCount) return i;
+    if (
+      nums.slice(0, i).reduce((acc, curr) => {
+        return acc + curr;
+      }, 0) ===
+      nums.slice(i + 1).reduce((acc, curr) => {
+        return acc + curr;
+      }, 0)
+    )
+      return i;
   }
-  return -1;
 }
 
 findEvenIndex([20, 10, -80, 10, 10, 15, 35]);
