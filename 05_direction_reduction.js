@@ -36,3 +36,16 @@
 // Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible. "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
 // if you want to translate, please ask before translating.
 
+function dirReduc(arr) {
+  let pairs = { NORTH: "SOUTH", SOUTH: "NORTH", EAST: "WEST", WEST: "EAST" };
+
+  return arr.reduce((acc, curr) => {
+    if (acc[acc.length - 1] === pairs[curr]) {
+      acc.pop();
+      return acc;
+    } else {
+      acc.push(curr);
+      return acc;
+    }
+  }, []);
+}
